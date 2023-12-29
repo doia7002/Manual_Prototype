@@ -239,7 +239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 201016267}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1164161154}
+        m_TargetAssemblyTypeName: GateScript, Assembly-CSharp
+        m_MethodName: Script
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &226452612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1561,7 @@ MonoBehaviour:
   conclusion: {fileID: 694930272}
   Slash: {fileID: 941773313}
   blood: {fileID: 1318757462}
+  Scriptbtn: {fileID: 201016264}
 --- !u!4 &1164161155
 Transform:
   m_ObjectHideFlags: 0

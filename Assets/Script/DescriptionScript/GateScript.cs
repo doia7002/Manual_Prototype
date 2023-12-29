@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
+using System.Runtime.CompilerServices;
+using UnityEngine.SceneManagement;
 
 public class GateScript : MonoBehaviour
 {
@@ -20,11 +22,12 @@ public class GateScript : MonoBehaviour
     public GameObject conclusion;
     public GameObject Slash;
     public GameObject blood;
+    public GameObject Scriptbtn;
     Color newColor;
     string newColor_Code;
     private int currentTextIndex = 0;
     private string[] texts = { "이 집에는 나 외에는 거주는 사람이 없다", "현관에는 누군가 침입한 흔적이 있다", "마당에는 많은 발자국이 찍혀있다.", "이 방에는 나 이외에 숨소리가 하나 더 들린다.", "그렇다면 이 집에 침입한 성인남성이 숨을만한곳은 어디일까?" };
-
+    private string[] engage = {"크아아악!", "이새끼 감히 우리 동료를!", "아...이거 큰일이네..." };
 
     public void Clue1()
     {
@@ -74,12 +77,26 @@ public class GateScript : MonoBehaviour
     }
     public void kill()
     { 
-        blood.SetActive(true);
-        Color color = Color.red;
-
-        text.text = "크아아악";
+        blood.SetActive(true);       
         conclusion.SetActive(false);
         Slash.SetActive(false);
+    }
+    public void Script()
+    {
+        if (Room != true)
+        {
+            currentTextIndex++;
+            if (currentTextIndex >= engage.Length)
+            {
+                currentTextIndex = 0;
+            }
+            text.text = engage[currentTextIndex];
+            if (currentTextIndex == engage.Length)
+            {
+                SceneManager.LoadScene("engage");
+            }
+        }
+        else { text.text = ""; }
     }
 
     // Start is called before the first frame update

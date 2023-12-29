@@ -23,6 +23,7 @@ public class GateScript : MonoBehaviour
     public GameObject Slash;
     public GameObject blood;
     public GameObject Scriptbtn;
+    public GameObject change;
     Color newColor;
     string newColor_Code;
     private int currentTextIndex = 0;
@@ -65,15 +66,13 @@ public class GateScript : MonoBehaviour
     }
     public void Clear()
     {
-        
-            currentTextIndex++;
-            if (currentTextIndex >= texts.Length)
-            {
-                currentTextIndex = 0;
-            }
-            text.text = texts[currentTextIndex];
+        currentTextIndex++;
+        if (currentTextIndex >= texts.Length)
+        {
+            currentTextIndex = 0;
+        }
+        text.text = texts[currentTextIndex];
         Slash.SetActive(true);
-        
     }
     public void kill()
     { 
@@ -83,20 +82,25 @@ public class GateScript : MonoBehaviour
     }
     public void Script()
     {
-        if (Room != true)
+        
+
+
+        if (blood.active == true)
         {
+            
             currentTextIndex++;
             if (currentTextIndex >= engage.Length)
             {
                 currentTextIndex = 0;
             }
             text.text = engage[currentTextIndex];
-            if (currentTextIndex == engage.Length)
-            {
-                SceneManager.LoadScene("engage");
-            }
+            change.SetActive(true);
         }
         else { text.text = ""; }
+    }
+    public void changescene()
+    {
+        SceneManager.LoadScene("engage");
     }
 
     // Start is called before the first frame update
@@ -113,10 +117,7 @@ public class GateScript : MonoBehaviour
         {
             text.text = "";
         }
-        if(Room != true)
-        {
-            
-        }
+        
     }
 
    
